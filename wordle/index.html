@@ -10,7 +10,7 @@
 
 
   <body>
-    <script src="./wordle.js"></script>
+    
 
     <!-- Menu -->
     <div class="navBar">
@@ -18,13 +18,13 @@
       <span class="wordle">Wordle</span>
       <span class="empty2"></span>
       <span class="sign1" onclick = "darkMode()" >&#9681;</span>
-      <span class="sign2">&#63;</span> 
+      <span class="sign2" onclick = "tester()">&#63;</span> 
       <span class="sign3">&#9432;</span> 
     </div>
     
-    <div class="tableDiv">
-      <table class="mainTable">
-        <tr class="row">
+    <div class="tableDiv" id="tableDivID">
+      <table class="mainTable" id="tableID">
+        <!-- <tr class="row">
           <td class="cell"></td>
           <td class="cell"></td>
           <td class="cell"></td>
@@ -47,9 +47,10 @@
           <td class="cell"></td>
           <td class="cell"></td>
           <td class="cell"></td>
-        </tr>
+        </tr> -->
       </table>
     </div>
 
   </body>
+  <script src="./wordle.js"></script>
 </html>
