@@ -2,3 +2,93 @@ body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
 }
+.dark{
+  background-color: rgb(74, 74, 74);
+  color: #e6e6e6;
+}
+
+/* Menu */
+.navBar{
+  width: 100vw;
+  text-align: center; 
+  background-color: rgb(173, 173, 173);
+
+}
+
+span{
+  background-color: rgb(173, 173, 173);
+  color: black;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+
+.empty1{
+  display: inline-block;
+  width: 42vw;
+}
+.wordle{
+  display: inline-block;
+  width: 10vw;
+}
+.empty2{
+  display: inline-block;
+  width: 28vw;
+}
+.sign1{
+  display: inline-block;
+  width: 5vw;
+}
+.sign1:hover{
+  background-color: rgb(54, 54, 54);
+  color: rgb(235, 235, 235);
+  text-decoration: none;
+}
+.sign2{
+  display: inline-block;
+  width: 5vw;
+}
+.sign2:hover{
+  background-color: rgb(54, 54, 54);
+  color: rgb(235, 235, 235);
+  text-decoration: none;
+}
+.sign3{
+  display: inline-block;
+  width: 5vw;
+}
+.sign3:hover{
+  background-color: rgb(54, 54, 54);
+  color: rgb(235, 235, 235);
+  text-decoration: none;
+}
+
+
+/* Table */
+
+.mainTable{
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+.tableDiv{
+  padding-top: 18vh;
+}
+.cell{
+  height: 100px;
+  width: 100px;
+}
+
+th, td {
+  border: 1px solid;
+}
+
+
+
+
+
+/* 
+*{
+  outline: 1px dashed grey
+} */
