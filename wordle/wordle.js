@@ -33,7 +33,7 @@ function updateTable(orderArray){
     g.setAttribute("id", "tableID")
     g.setAttribute("class", "mainTable")
 
-    var table = document.getElementById("tableID");  // set this to your table
+    var table = document.getElementById("tableID"); 
 
     var tbody = document.createElement("tbody");
     table.appendChild(tbody);
@@ -73,6 +73,13 @@ function arrayDelete(arr, i){
 }
 
 function checkAnswer(arr, i){
+    var h = document.querySelector("table.mainTable")
+    console.log(h)
+    h.setProperty('style', 'background-color: red;')
+
+
+
+
     answer = ""
     for(j = 0; j < 4; j++){
         if(arr[i][j] == ""){
@@ -90,7 +97,21 @@ function checkAnswer(arr, i){
         console.log("INCORRECT")
     }
 
+    //Change Colours
+
+    for(j = 0; j < 4; j++){
+        if(arr[i][j] == word[i]){
+            
+            var h = document.querySelector("table:nth-child(2)")
+
+            //mainTable tbody tr:nth-child(2) td:nth-child(2)
+            h.style.setProperty('style', 'background-color: red;')
+        }
+
+
     guess += 1
+
+    }
 }
 
 async function getWords(){
@@ -135,6 +156,11 @@ function setupCode(){
 //--------------------------------MAIN---------------------------------------
 guess = 0
 getWords()
+
+
+    //mainTable tbody tr:nth-child(2) td:nth-child(2)        
+
+
 
 document.addEventListener("keyup", (e) => {
     let pressedKey = (String(e.key))

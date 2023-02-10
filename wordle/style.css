@@ -4,6 +4,7 @@
   --textColor: black;
   --barColor: rgb(224, 224, 224);
   --barText: black;
+  --boxColor: white;
 }
 
 body {
@@ -70,6 +71,11 @@ span{
 
 
 /* Table */
+
+.mainTable tbody tr:nth-child(2) td:nth-child(2) {
+  background-color: var(--boxColor);
+}
+
 
 .mainTable{
   text-align: center;
