@@ -100,8 +100,13 @@ function checkAnswer(arr, i){
     console.log(answer)
     if (answer == word){
         console.log("CORRECT")
+        document.getElementById("tableID").innerHTML = "<img src=\"https://res.cloudinary.com/mkf/image/upload/v1675467141/ENSF-381/labs/congrats_fkscna.gif\" width=\"416px\" height=\"416px\">"
         // alert("You Win!!!!!!")
     }else{
+        if (guess == 3){
+            document.getElementById("hintID").innerHTML = "You lost! The word was " + word
+            r.style.setProperty("--highlight", 'red')
+        }
         console.log("INCORRECT")
     }
 
@@ -126,6 +131,13 @@ async function getWords(){
 }
 
 function reloadWord(){
+    // reset changes
+    var r = document.querySelector(':root')
+    document.getElementById("hintID").innerHTML = "©EvanCherewko"
+    r.style.setProperty("--highlight", 'var(--barColor)')
+    
+
+
     var num = Number.parseInt(Math.random() * res.dictionary.length)
     word = res.dictionary[num]['word']
     word = word.toLowerCase()
@@ -184,20 +196,22 @@ function rules(){
 }
 
 function hintDisplay(){
-    alert(hint)
+    console.log(hint)
+    document.getElementById("hintID").innerHTML = "Hint: " + hint
+    var r = document.querySelector(':root')
+    r.style.setProperty("--highlight", 'var(--barColor)')
 }
 
 //--------------------------------MAIN---------------------------------------
 document.getElementById("rulesID").style.display = "none"
 
 getWords()
-
-
-    //mainTable tbody tr:nth-child(2) td:nth-child(2)        
+      
 
 
 
 document.addEventListener("keyup", (e) => {
+    // window.focus()
     let pressedKey = (String(e.key))
     if (pressedKey === "Backspace") {
         arrayDelete(orderArray, guess)
@@ -211,7 +225,7 @@ document.addEventListener("keyup", (e) => {
     if (!found || found.length > 1) {
         return
     } else {
-        updateArray(pressedKey, orderArray, guess)
+        updateArray(pressedKey.toLowerCase(), orderArray, guess)
     }
 })
 
@@ -228,16 +242,3 @@ document.addEventListener("keyup", (e) => {
 
 
 
-    // //Change Colours
-    // for(j = 0; j < 4; j++){
-    //     if(arr[i][j] == word[j]){
-    //         qry = "table.mainTable tbody tr:nth-child("+(i+1).toString()+") td:nth-child("+(j+1).toString()+")"
-    //         var h = document.querySelector(qry)
-    //         h.style.setProperty('background-color', 'rgba(7, 187, 67, 0.4)')
-    //     }else if(word.includes(arr[i][j])){
-    //         qry = "table.mainTable tbody tr:nth-child("+(i+1).toString()+") td:nth-child("+(j+1).toString()+")"
-    //         var h = document.querySelector(qry)
-    //         h.style.setProperty('background-color', 'rgba(248, 234, 109, 0.4)')
-    //     }
-    // }
-    // guess += 1
