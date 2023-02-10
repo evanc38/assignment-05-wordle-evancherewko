@@ -73,13 +73,6 @@ function arrayDelete(arr, i){
 }
 
 function checkAnswer(arr, i){
-    var h = document.querySelector("table.mainTable")
-    console.log(h)
-    h.setProperty('style', 'background-color: red;')
-
-
-
-
     answer = ""
     for(j = 0; j < 4; j++){
         if(arr[i][j] == ""){
@@ -90,28 +83,29 @@ function checkAnswer(arr, i){
         }
         
     }
+
+
+    //Change Colours
+    r = document.querySelector(':root');
+    for(j = 0; j < 4; j++){
+        if(arr[i][j] == word[j]){
+            r.style.setProperty("--"+(i+1).toString()+(j+1).toString(), 'rgba(7, 187, 67, 0.4)')
+        }else if(word.includes(arr[i][j])){
+            r.style.setProperty("--"+(i+1).toString()+(j+1).toString(), 'rgba(248, 234, 109, 0.4)')
+        }else{
+            r.style.setProperty("--"+(i+1).toString()+(j+1).toString(), 'var(--barColor)')
+        }
+    }
+
     console.log(answer)
     if (answer == word){
         console.log("CORRECT")
+        // alert("You Win!!!!!!")
     }else{
         console.log("INCORRECT")
     }
 
-    //Change Colours
-
-    for(j = 0; j < 4; j++){
-        if(arr[i][j] == word[i]){
-            
-            var h = document.querySelector("table:nth-child(2)")
-
-            //mainTable tbody tr:nth-child(2) td:nth-child(2)
-            h.style.setProperty('style', 'background-color: red;')
-        }
-
-
     guess += 1
-
-    }
 }
 
 async function getWords(){
@@ -131,7 +125,35 @@ async function getWords(){
     setupCode()
 }
 
+function reloadWord(){
+    var num = Number.parseInt(Math.random() * res.dictionary.length)
+    word = res.dictionary[num]['word']
+    word = word.toLowerCase()
+    hint = res.dictionary[num]['hint']
+    console.log(word)
+    console.log(hint)
+
+    orderArray= [
+        ["","","",""],
+        ["","","",""],
+        ["","","",""],
+        ["","","",""]];
+    updateTable(orderArray)
+
+    //reset colors
+    for(i = 0; i < 4; i++){
+        for(j = 0; j < 4; j++){
+            r.style.setProperty("--"+(i+1).toString()+(j+1).toString(), 'var(--background)')
+        }
+    }
+
+    guess = 0
+}
+
+
+
 function setupCode(){
+    guess = 0
     orderArray= [
         ["","","",""],
         ["","","",""],
@@ -150,11 +172,24 @@ function setupCode(){
     });
     tbody.appendChild(row);
     });
+}
 
+function rules(){
+    var x = document.getElementById("rulesID");
+    if (x.style.display == "none") {
+        x.style.display = "block";
+    } else {
+        x.style.display = "none";
+    }
+}
+
+function hintDisplay(){
+    alert(hint)
 }
 
 //--------------------------------MAIN---------------------------------------
-guess = 0
+document.getElementById("rulesID").style.display = "none"
+
 getWords()
 
 
@@ -193,25 +228,16 @@ document.addEventListener("keyup", (e) => {
 
 
 
-
-
-
-
-
-
-// var running = true;
-// var i = 0
-// var j = 0
-// while(running){
-
-//     eventTarget.addEventListener("keydown", (event) => {
-//         if (event.isComposing || event.keyCode === 229) {
-//             return;
-//         }
-//         alert("Keypress")
-//     })
-
-
-
-
-// }
+    // //Change Colours
+    // for(j = 0; j < 4; j++){
+    //     if(arr[i][j] == word[j]){
+    //         qry = "table.mainTable tbody tr:nth-child("+(i+1).toString()+") td:nth-child("+(j+1).toString()+")"
+    //         var h = document.querySelector(qry)
+    //         h.style.setProperty('background-color', 'rgba(7, 187, 67, 0.4)')
+    //     }else if(word.includes(arr[i][j])){
+    //         qry = "table.mainTable tbody tr:nth-child("+(i+1).toString()+") td:nth-child("+(j+1).toString()+")"
+    //         var h = document.querySelector(qry)
+    //         h.style.setProperty('background-color', 'rgba(248, 234, 109, 0.4)')
+    //     }
+    // }
+    // guess += 1

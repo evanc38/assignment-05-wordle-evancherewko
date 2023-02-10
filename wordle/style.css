@@ -14,6 +14,47 @@ body {
   color: var(--textColor);
 }
 
+.flex-container{
+  display: flex;
+  flex-direction: row;
+  /* flex-wrap: wrap; FIX */
+  justify-content: space-around;
+  align-content: center;
+  
+}
+
+.rules{
+  display: none;
+  padding-top: 22vh
+}
+
+.ruleList{
+  list-style-type: square;
+  line-height:150%
+}
+
+.but{
+  color: var(--textColor);
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 100px;
+  background-color: var(--barColor);
+  border-color: var(--boxColor);
+}
+
+.but:hover{
+  background-color: rgb(54, 54, 54);
+  color: white;
+}
+
+/* WHY ISNT THIS CENTERING??????????????????? */
+.butDiv{
+  align-items: center;
+  text-align:center;
+}
+
 /* Menu */
 .navBar{
   width: 100vw;
@@ -46,7 +87,7 @@ span{
   width: 5vw;
 }
 .sign1:hover{
-  background-color: rgb(54, 54, 54);
+  background-color: rgb(95, 95, 95);
   color: rgb(235, 235, 235);
   text-decoration: none;
 }
@@ -71,10 +112,23 @@ span{
 
 
 /* Table */
-
-.mainTable tbody tr:nth-child(2) td:nth-child(2) {
-  background-color: var(--boxColor);
-}
+/* maybe set these here so they stay */
+.mainTable tbody tr:nth-child(1) td:nth-child(1) {background-color: var(--11);}
+.mainTable tbody tr:nth-child(1) td:nth-child(2) {background-color: var(--12);}
+.mainTable tbody tr:nth-child(1) td:nth-child(3) {background-color: var(--13);}
+.mainTable tbody tr:nth-child(1) td:nth-child(4) {background-color: var(--14);}
+.mainTable tbody tr:nth-child(2) td:nth-child(1) {background-color: var(--21);}
+.mainTable tbody tr:nth-child(2) td:nth-child(2) {background-color: var(--22);}
+.mainTable tbody tr:nth-child(2) td:nth-child(3) {background-color: var(--23);}
+.mainTable tbody tr:nth-child(2) td:nth-child(4) {background-color: var(--24);}
+.mainTable tbody tr:nth-child(3) td:nth-child(1) {background-color: var(--31);}
+.mainTable tbody tr:nth-child(3) td:nth-child(2) {background-color: var(--32);}
+.mainTable tbody tr:nth-child(3) td:nth-child(3) {background-color: var(--33);}
+.mainTable tbody tr:nth-child(3) td:nth-child(4) {background-color: var(--34);}
+.mainTable tbody tr:nth-child(4) td:nth-child(1) {background-color: var(--41);}
+.mainTable tbody tr:nth-child(4) td:nth-child(2) {background-color: var(--42);}
+.mainTable tbody tr:nth-child(4) td:nth-child(3) {background-color: var(--43);}
+.mainTable tbody tr:nth-child(4) td:nth-child(4) {background-color: var(--44);}
 
 
 .mainTable{
@@ -101,7 +155,7 @@ th, td {
 
 
 
-/* 
+/*  
 *{
   outline: 1px dashed grey
-} */
+}  */

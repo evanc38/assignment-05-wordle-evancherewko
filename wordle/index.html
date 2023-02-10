@@ -13,13 +13,47 @@
       <span class="wordle">Wordle</span>
       <span class="empty2"></span>
       <span class="sign1" onclick = "darkMode()" >&#9681;</span>
-      <span class="sign2" onclick = "hint()">&#63;</span> 
-      <span class="sign3">&#9432;</span> 
+      <span class="sign2" onclick = "hintDisplay()">&#63;</span> 
+      <span class="sign3" onclick = "rules()">&#9432;</span> 
     </div>
-      <div class="tableDiv" id="tableDivID">
-      <table class="mainTable" id="tableID">
-      </table>
+
+    <div class="flex-container">
+      <!-- Left -->
+      <div>
+
+      </div>
+
+      <!-- Middle -->
+      <div>
+        <div class="tableDiv" id="tableDivID">
+          <table class="mainTable" id="tableID">
+          </table>
+        </div>
+        <div class="butDiv">
+          <button class="but" onclick="reloadWord()">Reset</button>
+        </div>
+      </div>
+
+      <!-- Right -->
+      <div>
+        <div class="rules" id="rulesID">
+          <h2><b>How To Play</b></h2>
+          <ul class="ruleList">
+            <li>Start typing. The letters will appear in the boxes</li>
+            <li>Remove letters with backspace</li>
+            <li>Hit Enter/Return to submit an answer</li>
+            <li>Letters with a green background are in the right spot</li>
+            <li>Letters with a yellow background are in the word 
+                but in the wrong spot
+            </li>
+            <li>Letters with a gray background are not in the word</li>
+            <li>If you need a hint, press the <b>?</b> icon</li>
+          </ul>
+        </div>
+      </div>
     </div>
+
+
   </body>
   <script src="./wordle.js"></script>
 </html>
