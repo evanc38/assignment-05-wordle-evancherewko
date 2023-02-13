@@ -114,6 +114,7 @@ function checkAnswer(arr, i){
 }
 
 async function getWords(){
+    document.getElementById("butID").innerHTML = "LOADING"
     res = await fetch("https://api.masoudkf.com/v1/wordle", {
     headers: {
     "x-api-key": "sw0Tr2othT1AyTQtNDUE06LqMckbTiKWaVYhuirv",
@@ -127,6 +128,7 @@ async function getWords(){
     hint = res.dictionary[num]['hint']
     console.log(word)
     console.log(hint)
+    document.getElementById("butID").innerHTML = "Start Over"
     setupCode()
 }
 
