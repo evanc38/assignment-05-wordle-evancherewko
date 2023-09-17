@@ -100,7 +100,8 @@ function checkAnswer(arr, i){
     console.log(answer)
     if (answer == word){
         console.log("CORRECT")
-        document.getElementById("tableID").innerHTML = "<img src=\"https://res.cloudinary.com/mkf/image/upload/v1675467141/ENSF-381/labs/congrats_fkscna.gif\" width=\"416px\" height=\"416px\">"
+        document.getElementById("tableID").innerHTML = "The word was " + word + "!!"
+
         // alert("You Win!!!!!!")
     }else{
         if (guess == 3){
@@ -114,18 +115,29 @@ function checkAnswer(arr, i){
 }
 
 async function getWords(){
-    document.getElementById("butID").innerHTML = "LOADING"
-    res = await fetch("https://api.masoudkf.com/v1/wordle", {
-    headers: {
-    "x-api-key": "sw0Tr2othT1AyTQtNDUE06LqMckbTiKWaVYhuirv",
-        },
-    })
-    .then((res) => res.json())
+    // document.getElementById("butID").innerHTML = "LOADING"
+    // res = await fetch("https://api.masoudkf.com/v1/wordle", {
+    // headers: {
+    // "x-api-key": "sw0Tr2othT1AyTQtNDUE06LqMckbTiKWaVYhuirv",
+    //     },
+    // })
+    // .then((res) => res.json())
 
-    var num = Number.parseInt(Math.random() * res.dictionary.length)
-    word = res.dictionary[num]['word']
+    // var num = Number.parseInt(Math.random() * res.dictionary.length)
+    // word = res.dictionary[num]['word']
+    // word = word.toLowerCase()
+    // hint = res.dictionary[num]['hint']
+
+    
+    
+    wordList = ["Also",	"Able",	"Acid", "Aged",	"Away",	"Baby", "Back",	"Bank",	"Been", "Ball",	"Base",	"Busy", "Bend",	"Bell",	"Bird", "Come",	"Came",	"Calm", "Card",	"Coat",	"City", "Chat",	"Cash",	"Crow", "Cook",	"Cool",	"Dark", "Each",	"Evil",	"Even", "Ever",	"Face",	"Fact", "Four",	"Five",	"Fair", "Feel",	"Fell",	"Fire", "Fine",	"Fish",	"Game", "Gone",	"Gold",	"Girl", "Have",	"Hair",	"Here", "Hear",	"Into",	"Iron", "Jump",	"Kick",	"Kill", "Life",	"Like",	"Love", "Main",	"Move",	"Meet", "More",	"Nose",	"Near", "Open",	"Only",	"Push", "Pull",	"Sell",	"Sale"]
+
+    var num = Number.parseInt(Math.random() * wordList.length)
+    word = wordList[num]
     word = word.toLowerCase()
-    hint = res.dictionary[num]['hint']
+    hint = "test hint"
+
+
     console.log(word)
     console.log(hint)
     document.getElementById("butID").innerHTML = "Start Over"
@@ -140,10 +152,19 @@ function reloadWord(){
     
 
 
-    var num = Number.parseInt(Math.random() * res.dictionary.length)
-    word = res.dictionary[num]['word']
+    // var num = Number.parseInt(Math.random() * res.dictionary.length)
+    // word = res.dictionary[num]['word']
+    // word = word.toLowerCase()
+    // hint = res.dictionary[num]['hint']
+
+
+    wordList = ["Also",	"Able",	"Acid", "Aged",	"Away",	"Baby", "Back",	"Bank",	"Been", "Ball",	"Base",	"Busy", "Bend",	"Bell",	"Bird", "Come",	"Came",	"Calm", "Card",	"Coat",	"City", "Chat",	"Cash",	"Crow", "Cook",	"Cool",	"Dark", "Each",	"Evil",	"Even", "Ever",	"Face",	"Fact", "Four",	"Five",	"Fair", "Feel",	"Fell",	"Fire", "Fine",	"Fish",	"Game", "Gone",	"Gold",	"Girl", "Have",	"Hair",	"Here", "Hear",	"Into",	"Iron", "Jump",	"Kick",	"Kill", "Life",	"Like",	"Love", "Main",	"Move",	"Meet", "More",	"Nose",	"Near", "Open",	"Only",	"Push", "Pull",	"Sell",	"Sale"]
+
+    var num = Number.parseInt(Math.random() * wordList.length)
+    word = wordList[num]
     word = word.toLowerCase()
-    hint = res.dictionary[num]['hint']
+    hint = "test hint"
+
     console.log(word)
     console.log(hint)
 
@@ -208,11 +229,10 @@ function hintDisplay(){
 document.getElementById("rulesID").style.display = "none"
 
 getWords()
-      
-
 
 
 document.addEventListener("keyup", (e) => {
+    console.log(orderArray)
     // window.focus()
     let pressedKey = (String(e.key))
     if (pressedKey === "Backspace") {
